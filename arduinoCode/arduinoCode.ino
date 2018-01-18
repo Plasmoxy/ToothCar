@@ -15,7 +15,7 @@ const byte directionChange = 10;
 char cmd = 0;
 boolean blueConnected = false;
 int direct = 0;
-byte _speed = 0;
+byte _speed = 255;
 
 Servo servo;
 SoftwareSerial blue(blueRX, 16); // 16 doesnt exist, no tx
@@ -118,9 +118,37 @@ void loop() {
       forward();
       break;
     case 'B':
-    } else if(cmd=='B') {
       addStraight();
       backward();
+      break;
+    case 'L':
+      addLeft();
+      break;
+    case 'R':
+      addRight();
+      break;
+    case 'G':
+      addLeft();
+      forward();
+      break;
+    case 'I':
+      addRight();
+      forward();
+      break;
+    case 'H':
+      addLeft();
+      backward();
+      break;
+    case 'J':
+      addRight();
+      backward();
+      break;
+    case 'S':
+      addStraight();
+      stopp();
+      break;
+    }
+    /*
     } else if(cmd=='L') {
       addLeft();
     } else if(cmd=='R') {
@@ -140,23 +168,8 @@ void loop() {
     } else if(cmd=='S') {
       addStraight();
       stopp();
-    } else if(cmd=='0') {
-      parseSpeed(0);
-    } else if(cmd=='1') {
-      parseSpeed(10);
-    } else if(cmd=='2') {
-      parseSpeed(20);
-    } else if(cmd=='3') {
-      parseSpeed(30);
-    } else if(cmd=='4') {
-      parseSpeed(40);
-    } else if(cmd=='5') {
-      parseSpeed(50);
-    } else if(cmd==
-    }
-
+*/
     updateDirection();
-    updateMove();
 
   }
   
